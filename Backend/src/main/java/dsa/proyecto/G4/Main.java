@@ -1,8 +1,7 @@
 
-    package dsa.proyecto.G2;
+    package dsa.proyecto.G4;
 
     import io.swagger.jaxrs.config.BeanConfig;
-    import io.swagger.jersey.listing.ApiListingResourceJSON;
     import org.glassfish.grizzly.http.server.HttpServer;
     import org.glassfish.grizzly.http.server.StaticHttpHandler;
     import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -17,7 +16,7 @@
      */
     public class Main {
         // Base URI the Grizzly HTTP server will listen on
-        public static final String BASE_URI = "http://192.168.74.96:8080/dsaApp/";
+        public static final String BASE_URI = "http://192.168.1.141:8080/dsaApp/";
 
         /**
          * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -33,7 +32,7 @@
 
             BeanConfig beanConfig = new BeanConfig();
 
-            beanConfig.setHost("192.168.74.96:8080");
+            beanConfig.setHost("192.168.1.141:8080");
             beanConfig.setBasePath("/dsaApp");
             beanConfig.setContact("support@example.com");
             beanConfig.setDescription("REST API for Juego Manager");

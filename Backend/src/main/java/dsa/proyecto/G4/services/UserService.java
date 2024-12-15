@@ -1,14 +1,13 @@
-package dsa.proyecto.G2.services;
+package dsa.proyecto.G4.services;
 
-import dsa.proyecto.G2.UserManager;
-import dsa.proyecto.G2.UserManagerImpl;
-import dsa.proyecto.G2.models.User;
+import dsa.proyecto.G4.UserManager;
+import dsa.proyecto.G4.UserManagerImpl;
+import dsa.proyecto.G4.models.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-import javax.sound.midi.Track;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
@@ -25,7 +24,7 @@ public class UserService {
         this.userManager = UserManagerImpl.getInstance();
 
         // Datos de ejemplo
-        if (userManager.getUsuarioPorNombre("Alice") == null) {
+        if (userManager.countUsers()==0) {
             this.userManager.addUsuario(new User("1", "Alice", "123"));
             this.userManager.addUsuario(new User("2", "Bob", "456"));
             this.userManager.addUsuario(new User("3", "Charlie", "789"));
@@ -103,9 +102,11 @@ public class UserService {
            @ApiResponse(code=201,message = "Successful"),
            @ApiResponse(code=404, message = "User not found")
     })
-    @Path("/")
-    public Response updateUser(User user){
-        User u = this.userManager.updateUser(user);
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateUser(@PathParam("id") String id, User user){
+        User u = this.userManager.updateUser(id,user);
         if(u == null) return Response.status(404).build();
         return Response.status(201).entity(u).build();
     }

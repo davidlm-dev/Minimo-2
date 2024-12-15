@@ -1,6 +1,6 @@
-package dsa.proyecto.G2.models;
+package dsa.proyecto.G4.models;
 
-import dsa.proyecto.G2.util.RandomUtils;
+import dsa.proyecto.G4.util.RandomUtils;
 
 public class User {
     private String id;
