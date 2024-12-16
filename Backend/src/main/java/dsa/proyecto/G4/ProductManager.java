@@ -16,4 +16,6 @@ public interface ProductManager {
 
     // Eliminar un producto por ID
     boolean removeProduct(String id);
+
+    int countProducts();
 }

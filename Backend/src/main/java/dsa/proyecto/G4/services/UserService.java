@@ -61,16 +61,21 @@ public class UserService {
     @ApiOperation(value = "Crear un nuevo usuario", notes = "Crea un nuevo usuario con la información proporcionada")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = User.class),
+            @ApiResponse(code= 406,message = "Ya existe un usuario con tu nombre y contraseña elije otra contraseña"),
             @ApiResponse(code = 500, message = "Error de validación")
     })
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response newUsuario(User usuario) {
+        //cambios 4.7
         if (usuario.getNombre() == null || usuario.getContraseña() == null) {
             return Response.status(500).entity("Error de validación").build();
+        } else if (this.userManager.buscaUsuario(usuario)== null) {
+            return Response.status(406).entity("Usuario  existente").build();
+        }else {
+            this.userManager.addUsuario(usuario);
+            return Response.status(201).entity(usuario).build();
         }
-        this.userManager.addUsuario(usuario);
-        return Response.status(201).entity(usuario).build();
     }
 
     @POST
@@ -105,7 +110,7 @@ public class UserService {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUser(@PathParam("id") String id, User user){
+    public Response updateUser(@PathParam("id") String id, User user){//cambios 4.7
         User u = this.userManager.updateUser(id,user);
         if(u == null) return Response.status(404).build();
         return Response.status(201).entity(u).build();

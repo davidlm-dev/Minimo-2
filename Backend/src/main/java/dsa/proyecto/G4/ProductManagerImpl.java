@@ -46,4 +46,9 @@ public class ProductManagerImpl implements ProductManager {
     public boolean removeProduct(String id) {
         return productos.removeIf(producto -> producto.getId().equals(id));
     }
+
+    @Override
+    public int countProducts(){
+        return productos.size();
+    }
 }

@@ -25,9 +25,9 @@ public class ProductService {
         this.productManager = ProductManagerImpl.getInstance();
 
         // Datos de ejemplo
-        if (productManager.getProductById("1") == null) {
-            this.productManager.addProduct(new Product("1", "Producto1", 10.0));
-            this.productManager.addProduct(new Product("2", "Producto2", 25.0));
+        if (productManager.countProducts()==0) {
+            this.productManager.addProduct(new Product("1", "Pocion", 10.0));
+            this.productManager.addProduct(new Product("2", "Vickvaporub", 25.0));
         }
     }
     @GET

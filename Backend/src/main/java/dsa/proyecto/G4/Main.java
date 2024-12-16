@@ -25,7 +25,7 @@
         public static HttpServer startServer() {
             // create a resource config that scans for JAX-RS resources and providers
             // in edu.upc.dsa package
-            final ResourceConfig rc = new ResourceConfig().packages("dsa.proyecto.G2.services");
+            final ResourceConfig rc = new ResourceConfig().packages("dsa.proyecto.G4.services");
 
             rc.register(io.swagger.jaxrs.listing.ApiListingResource.class);
             rc.register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
@@ -37,7 +37,7 @@
             beanConfig.setContact("support@example.com");
             beanConfig.setDescription("REST API for Juego Manager");
             beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
-            beanConfig.setResourcePackage("dsa.proyecto.G2.services");
+            beanConfig.setResourcePackage("dsa.proyecto.G4.services");
             beanConfig.setTermsOfServiceUrl("http://www.example.com/resources/eula");
             beanConfig.setTitle("REST API");
             beanConfig.setVersion("1.0.0");

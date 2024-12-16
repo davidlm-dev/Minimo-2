@@ -82,7 +82,17 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public int countUsers(){
+    public int countUsers(){//cambios 4.7
         return usuarios.size();
+    }
+
+    @Override
+    public User buscaUsuario(User user){//cambios 4.7
+        for(User usuario : usuarios){
+            if(usuario.getNombre().equals(user.getNombre())  && usuario.getContraseña().equals(user.getContraseña()))
+                return  null;
+        }
+
+        return user;
     }
 }

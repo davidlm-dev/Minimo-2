@@ -16,5 +16,7 @@ public interface UserManager {
 
     boolean removeUsuario(String id);
 
-    int countUsers();
+    int countUsers(); //cambios 4.7
+
+    User buscaUsuario(User user); //cambios 4.7
 }
