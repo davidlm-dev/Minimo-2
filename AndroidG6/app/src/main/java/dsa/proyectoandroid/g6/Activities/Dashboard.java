@@ -29,7 +29,6 @@ public class Dashboard extends AppCompatActivity {
     public void onClickShop(View v){
         Intent Actv = new Intent(Dashboard.this, shop.class);
         startActivity(Actv);
-        finish();
     }
 
     public void onClickProfile(View v){
