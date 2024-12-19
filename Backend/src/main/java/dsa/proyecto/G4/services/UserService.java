@@ -115,6 +115,18 @@ public class UserService {
         if(u == null) return Response.status(404).build();
         return Response.status(201).entity(u).build();
     }
+    @GET
+    @Path("/posts")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getMessages() {
+        String json = "["
+                + "{\"message\": \"¡Bienvenido a la bandeja de entrada!\"},"
+                + "{\"message\": \"Tienes 3 nuevas notificaciones.\"},"
+                + "{\"message\": \"Revisa tus pedidos completados.\"}"
+                + "]";
+        return Response.ok(json).build();
+    }
+
 
 
 }

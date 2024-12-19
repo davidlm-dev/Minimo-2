@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidG6</string>
+    <string name="title_activity_actividad_examen">ActividadExamen</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

@@ -17,6 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.AndroidG6" />
+        <activity
+            android:name=".Activities.ActividadExamen"
+            android:exported="false"
+            android:label="@string/title_activity_actividad_examen"
+            android:theme="@style/Theme.AndroidG6" />
+        <activity
             android:name=".Activities.ProfileEditActivity"
             android:exported="false" />
         <activity
@@ -31,6 +41,7 @@
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="false" /> <!-- Configuración de tu actividad principal -->
+
         <activity
             android:name=".Activities.SplashScreen"
             android:exported="true">

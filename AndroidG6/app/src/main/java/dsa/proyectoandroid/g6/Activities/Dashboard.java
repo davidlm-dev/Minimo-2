@@ -36,4 +36,9 @@ public class Dashboard extends AppCompatActivity {
         startActivity(Actv);
         finish();
     }
+    public void onClickExamen(View view) {
+        Intent intent = new Intent(this, ActividadExamen.class);
+        startActivity(intent);
+    }
+
 }
